@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>TrustAI – Featured Tools</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ── NAV ── -->
+  <nav class="navbar">
+    <div class="nav-brand">
+      <span class="brand-trust">Trust</span><span class="brand-ai">AI</span>
+    </div>
+    <div class="nav-links">
+      <a href="#featured">Featured</a>
+      <a href="#" id="navCategories">Categories</a>
+      <a href="#" id="navTop">Top Ranked</a>
+    </div>
+    <div class="nav-search-wrap">
+      <input id="navSearch" type="text" placeholder="Search tools…" autocomplete="off"/>
+      <span class="search-icon">🔍</span>
+    </div>
+  </nav>
+
+  <!-- ── HERO ── -->
+  <header class="hero">
+    <h1>Discover the Best <span class="gradient-text">AI Tools</span></h1>
+    <p class="hero-sub">Curated, ranked &amp; reviewed – find the right AI tool for every task.</p>
+    <div class="hero-search-wrap">
+      <input id="heroSearch" type="text" placeholder="Search AI tools…" autocomplete="off"/>
+      <button id="heroSearchBtn">Search</button>
+    </div>
+    <!-- category pills -->
+    <div class="pill-row" id="catPills">
+      <button class="pill active" data-cat="All">All</button>
+      <button class="pill" data-cat="Text">Text</button>
+      <button class="pill" data-cat="Image">Image</button>
+      <button class="pill" data-cat="Code">Code</button>
+      <button class="pill" data-cat="Design">Design</button>
+      <button class="pill" data-cat="Marketing">Marketing</button>
+      <button class="pill" data-cat="Video">Video</button>
+      <button class="pill" data-cat="Audio">Audio</button>
+      <button class="pill" data-cat="Productivity">Productivity</button>
+    </div>
+    <!-- pricing filter pills -->
+    <div class="pill-row pricing-pill-row" id="pricePills">
+      <button class="pill price-pill active" data-price="All">💰 All Pricing</button>
+      <button class="pill price-pill" data-price="Free">🆓 Free</button>
+      <button class="pill price-pill" data-price="Freemium">⚡ Freemium</button>
+      <button class="pill price-pill" data-price="Paid">💳 Paid</button>
+      <button class="pill price-pill" data-price="Credits">🪙 Credit-Based</button>
+    </div>
+  </header>
+
+  <!-- ── SORT BAR ── -->
+  <section id="featured">
+    <div class="section-header">
+      <h2>Featured Tools</h2>
+      <div class="sort-wrap">
+        <label>Sort by</label>
+        <select id="sortSelect">
+          <option value="rank">Rank (High→Low)</option>
+          <option value="rankAsc">Rank (Low→High)</option>
+          <option value="popularity">Popularity</option>
+          <option value="name">Name A–Z</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- results info -->
+    <p id="resultsInfo" class="results-info"></p>
+
+    <!-- ── GRID ── -->
+    <div id="toolGrid" class="tool-grid"></div>
+
+    <!-- empty state -->
+    <div id="emptyState" class="empty-state hidden">
+      <div class="empty-icon">🤖</div>
+      <p>No tools found. Try a different search or category.</p>
+      <button id="resetBtn">Reset Filters</button>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ── -->
+  <footer class="footer">
+    <p>&copy; 2026 TrustAI · All rights reserved</p>
+  </footer>
+
+  <!-- ── TOAST ── -->
+  <div id="toast" class="toast hidden"></div>
+
+  <!-- ── DETAIL MODAL ── -->
+  <div id="modalOverlay" class="modal-overlay hidden" role="dialog" aria-modal="true">
+    <div class="modal-box">
+      <button id="modalClose" class="modal-close" aria-label="Close">&times;</button>
+
+      <div class="modal-header">
+        <div class="modal-emoji" id="mEmoji"></div>
+        <div>
+          <h2 id="mName"></h2>
+          <div class="modal-badges" id="mBadges"></div>
+        </div>
+        <span class="modal-rank" id="mRank"></span>
+      </div>
+
+      <p class="modal-desc" id="mDesc"></p>
+
+      <!-- pricing card -->
+      <div class="modal-pricing" id="mPricing"></div>
+
+      <!-- stats row -->
+      <div class="modal-stats" id="mStats"></div>
+
+      <!-- features -->
+      <div class="modal-section">
+        <h3>✨ Key Features</h3>
+        <ul id="mFeatures" class="modal-list"></ul>
+      </div>
+
+      <!-- pros & cons -->
+      <div class="modal-two-col">
+        <div class="modal-section">
+          <h3>👍 Pros</h3>
+          <ul id="mPros" class="modal-list pros"></ul>
+        </div>
+        <div class="modal-section">
+          <h3>👎 Cons</h3>
+          <ul id="mCons" class="modal-list cons"></ul>
+        </div>
+      </div>
+
+      <!-- use cases -->
+      <div class="modal-section">
+        <h3>🎯 Best For</h3>
+        <div id="mUseCases" class="use-case-tags"></div>
+      </div>
+
+      <div class="modal-footer">
+        <a id="mVisitBtn" href="#" target="_blank" rel="noopener noreferrer" class="modal-visit-btn">🚀 Visit Website</a>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
